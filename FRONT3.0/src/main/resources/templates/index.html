@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de juego</title>
+    <link th:href="@{/css/new.css}" rel="stylesheet" />
+    <link th:href="@{/css/Main.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/funciones.js}"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body onload="getIp()">
+
+
+<h1 th:id="IpPlayerTurn" th:text="${IpPlayerTurn}"></h1>
+<p><input type="hidden"  id="ipplayer1" th:name="IpPlayer" value=""  /></p>
+
+
+<div class="container">
+    <h1> 4 - en Raya</h1>
+    <h2>Turno de jugador
+        <p><img th:if="${turno == 1}and ${gameStatus == 0}" th:src="@{/images/player1.png}"></p>
+        <p><img th:if="${turno == 2}and ${gameStatus == 0}" th:src="@{/images/player2.png}"></p>
+    </h2>
+    <h1>
+        <p th:if="${gameStatus == 1}" th:text="${JUGADOR1}"></p>
+        <p th:if="${gameStatus == 2}" th:text="${JUGADOR2}"></p>
+    </h1>
+
+</div>
+<table class="center">
+    <thead>
+    <tr>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="0"  placeholder="column"/>
+                <input type="hidden" id="full0" value="notfull">
+                <input class="btn"  id="button0" th:attr="onclick=|inicio()|" type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 " value="Poner ficha" />
+            </form>
+        </td>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="1"  placeholder="column"/>
+                <input type="hidden" id="full1" value="notfull">
+                <input class="btn" id="button1" th:attr="onclick=|inicio()|"  type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 "  value="Poner ficha" />
+            </form>
+        </td>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="2"  placeholder="column"/>
+                <input type="hidden" id="full2" value="notfull">
+                <input class="btn" id="button2"  th:attr="onclick=|inicio()|" type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 " value="Poner ficha" />
+            </form>
+        </td>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="3"  placeholder="column"/>
+                <input type="hidden" id="full3" value="notfull">
+                <input class="btn" id="button3" th:attr="onclick=|inicio()|"  type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 " value="Poner ficha" />
+            </form>
+        </td>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="4"  placeholder="column"/>
+                <input type="hidden" id="full4" value="notfull">
+                <input class="btn" id="button4"  th:attr="onclick=|inicio()|" type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 " value="Poner ficha" />
+            </form>
+        </td>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="5"  placeholder="column"/>
+                <input type="hidden" id="full5" value="notfull">
+                <input class="btn" id="button5" th:attr="onclick=|inicio()|" type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 " value="Poner ficha" />
+            </form>
+        </td>
+        <td>
+            <form action="#" class="form" th:action="@{/tablero}" th:object="${board}" method="post">
+                <input type="hidden"  th:id="idPlayer"  th:name="idPlayer" th:value=${idPlayer}  placeholder="idPlayer"/>
+                <input type="hidden"  th:id="idTablero"  th:name="idTablero"  th:value=${idTablero}  placeholder="idTablero"/>
+                <input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value=${idPartida}  placeholder="idPartida"/>
+                <input type="hidden"  th:id="column"  th:name="column"  th:value="6"  placeholder="column"/>
+                <input type="hidden" id="full6" value="notfull">
+                <input class="btn" id="button6" th:attr="onclick=|inicio()|" type="submit" th:disabled="${gameStatus} == 1 or ${gameStatus} == 2 " value="Poner ficha" />
+            </form>
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row: ${interfaz}">
+        <td th:each="value: ${row}">
+            <img th:if="${value == 'PLAYER_ONE'} " th:src="@{/images/player1.png}">
+            <img th:if="${value == 'PLAYER_TWO'} " th:src="@{/images/player2.png}">
+            <img th:if="${value == 'PLAYER_EMPTY'} " th:src="@{/images/empty.png}">
+        </td>
+    </tr>
+    <tr>
+        <!--        <td th:each="value: ${fullColumn}">-->
+        <!--            <p th:text="${value}"></p>-->
+        <!--        </td>-->
+    </tr>
+    </tbody>
+</table>
+
+<div id="velo">
+    <div id="cuadro_mensaje">
+        <img id="cruz" th:src="@{/images/cruz.png}"></p>
+        <div id="mensaje">
+            <p>Esperando que mueva el otro jugador</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    setTimeout(function () {
+        window.location.reload();
+    }, 3000);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Jugador 1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/intermediate.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/funciones.js}"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body onload="getIp()">
+
+<div class="form-container">
+<form action="#" class="form" th:action="@{/player1}" th:object="${player1}" method="post">
+    <h1>4 en Raya</h1>
+    <p>Nombre de jugador 1: <input type="text" th:field="*{name}"  placeholder="Jugador 1"/></p>
+    <input type="hidden"  id="ipplayer1" th:name="IpPlayer" value=""  />
+    <p><input class="btn" type="submit" value="Crear jugador" /> <input class="btn" type="reset" value="Reset" /></p>
+</form>
+</div>
+</body>
+</html>

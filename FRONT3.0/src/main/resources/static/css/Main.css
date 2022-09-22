@@ -1,0 +1,43 @@
+#velo{
+	position: fixed;
+	background-color: rgba(0,0,0,0.4);
+	top:0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+}
+
+#cruz{
+	width: 30px;
+	top:5px;
+	right: 5px;
+	position: absolute;
+	cursor: pointer;
+}
+
+#cruz{
+	width: 30px;
+	top:5px;
+	right: 5px;
+	position: absolute;
+	cursor: pointer;
+}
+
+#cuadro_mensaje{
+	border:5px solid crimson;
+	width: 500px;
+	border-radius: 12px;
+	position: relative;
+	height: 100px;
+	background-color: white;
+}
+
+#mensaje{
+	font-size: 1.6em;
+	color:crimson;
+	text-align: center;
+}

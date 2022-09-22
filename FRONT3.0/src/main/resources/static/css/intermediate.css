@@ -1,0 +1,31 @@
+body{
+background-color:#6667AB;
+}
+
+.form{
+  background-color:#F1E4E8;
+  border: solid 1px black;
+  text-align: center;
+   width: 400px;
+
+}
+
+.btn{
+  background-color: #9DBF9E;
+  color: white;
+  padding: 16px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.form-container{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	background-color: rgba(255,255,255,0.9);
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<link th:href="@{/css/intermediate.css}" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de espera</title>
+
+</head>
+<body>
+<div class="form-container">
+    <form action="#" class="form" th:action="@{/searchPlayer}" th:object="${player1}" method="post">
+        <h1>Pulsa para buscar un jugador...</h1>
+        <h2 th:text="${gameIdGenerated}"></h2>
+        <p><input type="hidden"  th:id="idPartida"  th:name="idPartida"  th:value="${gameIdGenerated}"/></p>
+    <p><input class="btn" id="btnSearchPlayer" type="submit" value="Search Player"/></p>
+    </form>
+</div>
+
+</body>
+</html>

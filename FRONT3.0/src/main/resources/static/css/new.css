@@ -1,0 +1,42 @@
+body{
+background-color:#6667AB;
+}
+
+table {
+   background-color:#9DBF9E;
+   border-radius:12px;
+   padding: 5px;
+}
+th, td {
+   text-align: center;
+   vertical-align: top;
+   border-collapse: collapse;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img{
+    width: 50px ;
+}
+
+h1{
+text-align:center;
+}
+
+h2{
+text-align:center;
+}
+
+.container{
+margin: auto;
+background-color:#F1E4E8;
+width:45%;
+border-radius:16px;
+}
+
+#IpPlayerTurn{
+display:none;
+}
